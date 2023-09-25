@@ -39,7 +39,7 @@ function App() {
  
           <Route index = {true} element={<Blog/>}/>
           <Route path='categori' element={<Categori/>}/>
-          <Route path='post/:url' element={<Post/>} />
+          <Route path='post/:id/:url' element={<Post/>} />
 
 
         </Route>
