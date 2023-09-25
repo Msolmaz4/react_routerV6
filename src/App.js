@@ -7,6 +7,7 @@ import BlogLayout from './pages/blog/index.tsx';
 import Categori from './pages/blog/Categori.tsx';
 import Post from './pages/blog/Post.tsx';
 import Blog from './pages/blog/Blog.tsx';
+import Error from './pages/Error.tsx';
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
 
 
         </Route>
+        <Route path='*' element={<Error/>}/>
       </Routes>
 
 
