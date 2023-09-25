@@ -1,24 +1,39 @@
-import logo from './logo.svg';
+
 import './App.css';
+import {BrowserRouter ,Routes ,Route, Link, NavLink} from 'react-router-dom'
+import Home from './pages/Home.tsx';
+import Contaxt from './pages/Contaxt.tsx';
+import Blog from './pages/Blog.tsx';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+
+    <BrowserRouter>
+
+    <nav>
+      {/* boyle ya[parsak sayfa yenileniyor ben  unu istemiyorum bunu yerine link ya[pariz]]
+       <a href='/'> Amasayda</a>
+      <a href='/contact'> Contact</a>
+      <a href='/blog'> Blog</a> */}
+{/* bunda ıse actıv klası eklıyemezsın o yuzden NAVLINK KULLAN
+ <Link to='/'> Amasayda</Link>
+<Link to='/contact'> Contatct</Link>
+<Link to='/blog'>Blog</Link> */}
+     <NavLink to='/'> Amasayda</NavLink>
+<NavLink to='/contact'> Contatct</NavLink>
+<NavLink to='/blog'>Blog</NavLink>
+
+    </nav>
+    
+     <Routes>
+      <Route path='/' element={<Home/>}/>
+      <Route path='/contact' element={<Contaxt/>}/>
+      <Route path='/blog' element={<Blog/>}/>
+     </Routes>
+    
+    
+    </BrowserRouter>
   );
 }
 
