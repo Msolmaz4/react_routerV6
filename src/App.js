@@ -1,9 +1,12 @@
 
 import './App.css';
-import { BrowserRouter, Routes, Route, Link, NavLink } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
 import Home from './pages/Home.tsx';
 import Contaxt from './pages/Contaxt.tsx';
-import Blog from './pages/Blog.tsx';
+import BlogLayout from './pages/blog/index.tsx';
+import Categori from './pages/blog/Categori.tsx';
+import Post from './pages/blog/Post.tsx';
+import Blog from './pages/blog/Blog.tsx';
 
 function App() {
   return (
@@ -31,7 +34,15 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/contact' element={<Contaxt />} />
-        <Route path='/blog' element={<Blog />} />
+        {/* nesned router  dlfer dayfa;adara karimamaisa icin burafa layout yaptik */}
+        <Route path='/blog' element={<BlogLayout />} >
+ 
+          <Route index = {true} element={<Blog/>}/>
+          <Route path='categori' element={<Categori/>}/>
+          <Route path='post/:url' element={<Post/>} />
+
+
+        </Route>
       </Routes>
 
 
