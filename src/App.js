@@ -8,6 +8,7 @@ import Categori from './pages/blog/Categori.tsx';
 import Post from './pages/blog/Post.tsx';
 import Blog from './pages/blog/Blog.tsx';
 import Error from './pages/Error.tsx';
+import Profile from './pages/Profile.tsx';
 
 function App() {
   return (
@@ -35,16 +36,20 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/contact' element={<Contaxt />} />
+
+
         {/* nesned router  dlfer dayfa;adara karimamaisa icin burafa layout yaptik */}
         <Route path='/blog' element={<BlogLayout />} >
- 
           <Route index = {true} element={<Blog/>}/>
           <Route path='categori' element={<Categori/>}/>
           <Route path='post/:id/:url' element={<Post/>} />
-
-
         </Route>
+
+
+
+        
         <Route path='*' element={<Error/>}/>
+        <Route path='/profile' element={<Profile/>}/>
       </Routes>
 
 
