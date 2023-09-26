@@ -9,6 +9,9 @@ import Post from './pages/blog/Post.tsx';
 import Blog from './pages/blog/Blog.tsx';
 import Error from './pages/Error.tsx';
 import Profile from './pages/Profile.tsx';
+import PrivateRoute from './pages/PrivateRoute.tsx';
+import AuthLayout from './pages/auth/AuthLayout.tsx';
+import Login from './pages/auth/Login.tsx';
 
 function App() {
   return (
@@ -30,6 +33,7 @@ function App() {
           backgroundColor: isActive ? 'black' :'transparent'
         })}> Contatct</NavLink>
         <NavLink to='/blog'>Blog</NavLink>
+        <NavLink to='/profile'>profile</NavLink>
 
       </nav>
 
@@ -45,11 +49,17 @@ function App() {
           <Route path='post/:id/:url' element={<Post/>} />
         </Route>
 
+          {/* nesned router  dlfer dayfa;adara karimamaisa icin burafa layout yaptik */}
+          <Route path='/auth' element={<AuthLayout/>}>
+             <Route path='login' element={<Login/>}/>
 
+          </Route>
+      
+       
+        {/** private router */}
+        <Route path='/profile' element={<PrivateRoute> <Profile/> </PrivateRoute>}/>
 
-        
-        <Route path='*' element={<Error/>}/>
-        <Route path='/profile' element={<Profile/>}/>
+           <Route path='*' element={<Error/>}/>
       </Routes>
 
 
